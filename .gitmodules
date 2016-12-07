@@ -1,0 +1,3 @@
+[submodule "license-header-config"]
+	path = license-header-config
+	url = git@github.com:trustedanalytics/license-header-config.git

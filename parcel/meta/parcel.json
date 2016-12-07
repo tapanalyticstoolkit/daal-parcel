@@ -1,0 +1,29 @@
+{
+ "components": [
+  {
+   "name": "daal", 
+   "version": "2016.2.181"
+  }
+ ], 
+ "depends": "CDH (>=5.7.1 ), CDH (<< 5.7.1)", 
+ "groups": [], 
+ "name": "DAAL_LIB", 
+ "packages": [
+  {
+   "name": "daal", 
+   "version": "2016.2.181"
+  }
+ ], 
+ "provides": [
+  "yarn-plugin", 
+  "spark-plugin", 
+  "DAAL"
+ ], 
+ "schema_version": 1, 
+ "scripts": {
+  "defines": "daal_env.sh"
+ }, 
+ "setActiveSymlink": true, 
+ "users": {}, 
+ "version": "2016.2.181-3"
+}

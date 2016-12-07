@@ -1,0 +1,32 @@
+{
+ "daal.jar": {
+  "destination": "/opt/cloudera/parcels/CDH/lib/hadoop-yarn/lib/daal.jar", 
+  "isDirectory": false, 
+  "priority": 1, 
+  "source": "lib/daal.jar"
+ }, 
+ "libDaalTkJavaAPI.so": {
+  "destination": "/opt/cloudera/parcels/CDH/lib64/libDaalTkJavaAPI.so", 
+  "isDirectory": false, 
+  "priority": 1, 
+  "source": "lib/libDaalTkJavaAPI.so"
+ }, 
+ "libJavaAPI.so": {
+  "destination": "/opt/cloudera/parcels/CDH/lib64/libJavaAPI.so", 
+  "isDirectory": false, 
+  "priority": 1, 
+  "source": "lib/libJavaAPI.so"
+ }, 
+ "libiomp5.so": {
+  "destination": "/opt/cloudera/parcels/CDH/lib64/libiomp5.so", 
+  "isDirectory": false, 
+  "priority": 1, 
+  "source": "lib/libiomp5.so"
+ }, 
+ "libtbb.so.2": {
+  "destination": "/opt/cloudera/parcels/CDH/lib64/libtbb.so.2", 
+  "isDirectory": false, 
+  "priority": 1, 
+  "source": "lib/libtbb.so.2"
+ }
+}

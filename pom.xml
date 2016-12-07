@@ -1,0 +1,60 @@
+<!--
+  if you do a maven build from the parent you will most likely have to increase your memory footprint this has worked for me
+  in the past
+  export MAVEN_OPTS="-Xmx512m -XX:PermSize=256m"
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.trustedanalytics</groupId>
+        <artifactId>tap-root</artifactId>
+        <version>0.1.3</version>
+    </parent>
+
+    <artifactId>daal-parcel</artifactId>
+    <packaging>pom</packaging>
+    <version>master-SNAPSHOT</version>
+    <inceptionYear>2016</inceptionYear>
+    
+     <repositories>
+        <repository>
+            <id>tap</id>
+            <url>https://tap.jfrog.io/tap/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+     </repositories>
+     
+     <build>
+     <plugins>
+     <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <configuration>
+                        <header>license-header.txt</header>
+                        <headerDefinitions>
+                            <headerDefinition>python.xml</headerDefinition>
+                        </headerDefinitions>
+                        <mapping>
+                            <py>PYTHON_STYLE</py>
+                        </mapping>
+                        <excludes combine.children="append">
+                        </excludes>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                                <goal>format</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+     </plugins>
+     </build>
+</project>
