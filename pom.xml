@@ -29,32 +29,64 @@
             </releases>
         </repository>
      </repositories>
-     
+     <modules>
+        <module>cm_ext</module>
+     </modules>
      <build>
      <plugins>
-     <plugin>
-                    <groupId>com.mycila</groupId>
-                    <artifactId>license-maven-plugin</artifactId>
-                    <configuration>
-                        <header>license-header.txt</header>
-                        <headerDefinitions>
-                            <headerDefinition>python.xml</headerDefinition>
-                        </headerDefinitions>
-                        <mapping>
-                            <py>PYTHON_STYLE</py>
-                        </mapping>
-                        <excludes combine.children="append">
-                        </excludes>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>check</goal>
-                                <goal>format</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
+        <plugin>
+            <groupId>com.mycila</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+            <version>3.0</version>
+            <configuration>
+                <header>license-header-config/license-header.txt</header>
+                <headerDefinitions>
+                    <headerDefinition>license-header-config/python.xml</headerDefinition>
+                </headerDefinitions>
+                <mapping>
+                    <py>PYTHON_STYLE</py>
+                </mapping>
+                <excludes combine.children="append">
+                 <exclude>cm_ext</exclude>
+                 <exclude>license-header-config/python.xml</exclude>
+                </excludes>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>check</goal>
+                        <goal>format</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+         <plugin>
+             <groupId>org.codehaus.mojo</groupId>
+             <artifactId>exec-maven-plugin</artifactId>
+             <executions>
+                 <execution>
+                     <id>create-parcel</id>
+                     <phase>package</phase>
+                     <goals>
+                         <goal>exec</goal>
+                     </goals>
+                     <configuration>
+                         <executable>bash</executable>
+                         <arguments>
+                             <argument>create-parcel.sh</argument>
+                         </arguments>
+                     </configuration>
+                 </execution>
+             </executions>
+         </plugin>
      </plugins>
      </build>
+     <dependencies>
+        <!--<dependency>
+            <groupId>com.cloudera.enterprise</groupId>
+            <artifactId>cm_ext_tools</artifactId>
+            <version>5.7.0</version>
+            <scope>provided</scope>
+        </dependency>-->
+     </dependencies>
 </project>

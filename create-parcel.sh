@@ -1,4 +1,20 @@
 #!/bin/bash
+#
+#  Copyright (c) 2016 Intel Corporation 
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+
 
 CHECK_ENV=(VERSION BUILD_NUMBER DAAL_URL DISTRO GIT_TOKEN GIT_HASH)
 for env in ${CHECK_ENV[*]}
@@ -10,13 +26,15 @@ do
   fi
 done
 
+export REPO=daal-parcel
+export ORG=trustedanalytics
 export PACKAGE_NAME=DAAL_LIB
 
 RELEASE=$BUILD_NUMBER
 
 echo daal-$VERSION.zip
-if [ -f "daal-$VERSION.zip" ]; then
-	wget $DAAL_URL -O daal-$VERSION
+if [ !  -f "daal-$VERSION.zip" ]; then
+	wget $DAAL_URL -O daal-$VERSION.zip
 fi
 
 rm -rf daal-$VERSION
@@ -36,3 +54,13 @@ python daal-env.py
 cp -Rv parcel $PACKAGE_NAME-$VERSION-$RELEASE
 
 tar -zcvf $PACKAGE_NAME-$VERSION-$RELEASE-$DISTRO.parcel $PACKAGE_NAME-$VERSION-$RELEASE/ --owner=root --group=root
+
+java -jar  cm_ext/validator/target/validator.jar -f $PACKAGE_NAME-$VERSION-$RELEASE-$DISTRO.parcel
+
+mkdir -p repo
+mv $PACKAGE_NAME-$VERSION-$RELEASE-$DISTRO.parcel repo/
+pushd repo
+    ../cm_ext/make_manifest/make_manifest.py
+popd
+
+##./git-asset -t GIT_TOKEN -o $ORG -r $REPO upload

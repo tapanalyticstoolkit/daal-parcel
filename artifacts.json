@@ -1,0 +1,8 @@
+{
+	"daal-parcel": {
+		"label": "Daal CDH parcel."
+	},
+	"parcel-manifest": {
+		"label": "Daal parcel repo manifest."
+	}
+}

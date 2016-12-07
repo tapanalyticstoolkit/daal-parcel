@@ -1,3 +1,6 @@
 [submodule "license-header-config"]
 	path = license-header-config
 	url = git@github.com:trustedanalytics/license-header-config.git
+[submodule "cm_ext"]
+	path = cm_ext
+	url = git@github.com:cloudera/cm_ext.git
