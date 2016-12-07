@@ -1,6 +1,9 @@
 {
-	"daal-parcel": {
-		"label": "Daal CDH parcel."
+	"daal-parcel-el6": {
+		"label": "Daal centos 6 parcel."
+	},
+	"daal-parcel-el7": {
+		"label": "Daal centos 7 parcel."
 	},
 	"parcel-manifest": {
 		"label": "Daal parcel repo manifest."
