@@ -49,6 +49,9 @@
                 <excludes combine.children="append">
                  <exclude>cm_ext</exclude>
                  <exclude>license-header-config/python.xml</exclude>
+                 <exclude>**/*daal_env.sh</exclude>
+                 <exclude>**/*so.2</exclude>
+                 <exclude>**/*.parcel</exclude>
                 </excludes>
             </configuration>
             <executions>

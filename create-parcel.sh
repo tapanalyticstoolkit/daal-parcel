@@ -51,7 +51,8 @@ python alternatives.py
 python parcel.py
 python daal-env.py 
 
-cp -Rv parcel $PACKAGE_NAME-$VERSION-$RELEASE
+mkdir -p $PACKAGE_NAME-$VERSION-$RELEASE
+cp -Rv parcel/* $PACKAGE_NAME-$VERSION-$RELEASE/
 
 tar -zcvf $PACKAGE_NAME-$VERSION-$RELEASE-$DISTRO.parcel $PACKAGE_NAME-$VERSION-$RELEASE/ --owner=root --group=root
 
@@ -63,4 +64,3 @@ pushd repo
     ../cm_ext/make_manifest/make_manifest.py
 popd
 
-##./git-asset -t GIT_TOKEN -o $ORG -r $REPO upload

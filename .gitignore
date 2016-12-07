@@ -1,0 +1,9 @@
+parcel/lib
+repo
+target
+DAAL*
+*.zip
+daal-*
+*.iml
+.idea
+git-asset
