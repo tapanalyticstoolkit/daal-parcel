@@ -16,7 +16,7 @@
 #
 
 
-CHECK_ENV=(VERSION BUILD_NUMBER DAAL_URL DISTRO GIT_TOKEN GIT_HASH)
+CHECK_ENV=(VERSION DAALVERSION BUILD_NUMBER DAAL_URL DISTRO GIT_TOKEN GIT_HASH)
 for env in ${CHECK_ENV[*]}
 do
   env | grep "$env=.*"
@@ -32,17 +32,17 @@ export PACKAGE_NAME=DAAL_LIB
 
 RELEASE=$BUILD_NUMBER
 
-echo daal-$VERSION.zip
-if [ !  -f "daal-$VERSION.zip" ]; then
-	wget $DAAL_URL -O daal-$VERSION.zip
+echo daal-$DAALVERSION.zip
+if [ !  -f "daal-$DAALVERSION.zip" ]; then
+	wget $DAAL_URL -O daal-$DAALVERSION.zip
 fi
 
-rm -rf daal-$VERSION
+rm -rf daal-$DAALVERSION
 rm -rf parcel/lib/
 
-unzip -o daal-$VERSION.zip 
+unzip -o daal-$DAALVERSION.zip 
 mkdir -p parcel/lib
-cp -rv daal-$VERSION/* parcel/lib/
+cp -rv daal-$DAALVERSION/* parcel/lib/
 
 
 

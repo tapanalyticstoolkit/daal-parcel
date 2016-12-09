@@ -2,7 +2,7 @@
  "components": [
   {
    "name": "daal", 
-   "version": "2016.2.181"
+   "version": "0.7.4"
   }
  ], 
  "depends": "CDH (>=5.7.1 ), CDH (<< 5.7.1)", 
@@ -11,7 +11,7 @@
  "packages": [
   {
    "name": "daal", 
-   "version": "2016.2.181"
+   "version": "0.7.4"
   }
  ], 
  "provides": [
@@ -25,5 +25,5 @@
  }, 
  "setActiveSymlink": true, 
  "users": {}, 
- "version": "2016.2.181-3"
+ "version": "0.7.4-3"
 }

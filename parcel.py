@@ -26,7 +26,7 @@ VERSION = os.environ['VERSION'] if os.environ['VERSION'] else "0.1"
 RELEASE = os.environ['RELEASE'] if os.environ['RELEASE'] else "1" 
 CDH_START = "5.7.1"
 CDH_END = "5.7.1"
-PACKAGES = [{"name":"daal", "version": "2016.2.181"}]
+PACKAGES = [{"name":"daal", "version": "0.7.4"}]
 
 print "{0}-{1}".format(VERSION,RELEASE)
 parcel = {}
